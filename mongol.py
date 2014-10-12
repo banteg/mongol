@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, jsonify
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from bson import json_util
@@ -47,6 +47,14 @@ def firehose():
 def stream():
     return Response(firehose(),
                     mimetype='text/event-stream')
+
+
+@app.route('/api/last/<int:count>')
+def last(count):
+    log = db.find().sort('$natural', -1).limit(count)
+    data = {'data': list(log)}
+    return Response(json_util.dumps(data),
+                    mimetype='application/json')
 
 
 if __name__ == '__main__':
