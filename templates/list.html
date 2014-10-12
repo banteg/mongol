@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block body %}
+
+<script type="text/javascript">
+var source = new EventSource('/api/stream');
+source.onmessage = function (event) {
+     console.log(event.data);
+};
+</script>
+
 <div id="logs">
     {% for log in logs %}
     <div class="pure-g grid-padding">
