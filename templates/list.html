@@ -7,7 +7,9 @@
         <div class="pure-u-1-1">
             <div class="log">
                 <div class="secondary">{{ log.module }} in {{ log.funcName }}</div>
-                <div class="primary">{{ log.message }}</div>
+                <div class="primary">
+                <a href="{{ url_for('event', id=log._id) }}">
+                {{ log.message }}</div></a>
                 <div class="time">{{ log.time }} от {{ log.name }}</div>
             </div>
         </div>
