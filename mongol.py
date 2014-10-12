@@ -1,11 +1,19 @@
 from flask import Flask, render_template
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+import humanize
 
 app = Flask(__name__)
 app.debug = True
 mongo = MongoClient()
 db = mongo.mongolog.log
+
+
+@app.template_filter()
+def naturaltime(datetime):
+    locale_name = 'ru_RU'
+    humanize.activate(locale_name)
+    return humanize.naturaltime(datetime)
 
 
 @app.route('/')
