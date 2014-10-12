@@ -1,5 +1,6 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.debug = True
@@ -10,7 +11,13 @@ db = mongo.mongolog.log
 @app.route('/')
 def index():
     logs = db.find().sort('$natural', -1).limit(10)
-    return render_template('index.html', logs=logs, title='mongol')
+    return render_template('list.html', logs=logs, title='mongol')
+
+
+@app.route('/event/<id>')
+def event(id):
+    log = db.find_one({'_id': ObjectId(id)})
+    return render_template('detail.html', log=log)
 
 
 if __name__ == '__main__':
