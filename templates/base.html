@@ -16,23 +16,6 @@
 {% endblock %}
 
 {% block body %}
-<div id="logs">
-
-    {% for log in logs %}
-    <div class="pure-g grid-padding">
-        <div class="pure-u-1-1">
-            <div class="log">
-                <div class="secondary">{{ log.module }} in {{ log.funcName }}</div>
-
-                <div class="primary">{{ log.message }}</div>
-
-                <div class="time">{{ log.time }} от {{ log.name }}</div>
-
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-</div>
 {% endblock %}
 
 </div>

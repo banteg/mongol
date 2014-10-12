@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<div class="log">
+    <h1>{{ log.module }} in {{ log.funcName }}</h1>
+    <h2>{{ log.message }}</h2>
+
+    <pre class="secondary">{{ log.exc_info }}</pre>
+
+    <div class="time">{{ log.time }} from {{ log.name }}</div>
+</div>
+{% endblock %}
