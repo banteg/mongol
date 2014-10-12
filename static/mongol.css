@@ -1,0 +1,30 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.log {
+    padding: 4px;
+}
+
+.primary {
+    color: rgb(63, 63, 63);
+    padding: 8px 0;
+}
+
+.secondary {
+    color: rgb(127, 127, 127);
+}
+
+.grid-padding {
+    padding-bottom: 1.2em;
+}
+
+.time {
+    font-size: 0.8em;
+    color: rgb(192, 192, 192);
+}

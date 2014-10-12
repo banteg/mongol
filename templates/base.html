@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>mongol</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='mongol.css') }}>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container">
+
+{% block title %}
+<h1>{{ title }}</h1>
+{% endblock %}
+
+{% block body %}
+<div id="logs">
+
+    {% for log in logs %}
+    <div class="pure-g grid-padding">
+        <div class="pure-u-1-1">
+            <div class="log">
+                <div class="secondary">{{ log.module }} in {{ log.funcName }}</div>
+
+                <div class="primary">{{ log.message }}</div>
+
+                <div class="time">{{ log.time }} от {{ log.name }}</div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+</div>
+</body>
+</html>
