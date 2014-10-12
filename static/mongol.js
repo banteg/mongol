@@ -15,4 +15,9 @@ app.controller('LogsCtrl', function ($scope, $http) {
         $scope.$apply();
         console.log($scope.logs.length);
     }
+
+    $scope.time = function (timestamp) {
+        moment.locale('ru');
+        return moment(timestamp).subtract(7, 'hours').fromNow();
+    }
 })

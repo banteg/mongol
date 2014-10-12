@@ -9,9 +9,9 @@
             <div class="log">
                 <div class="secondary">{{ log.module }} в {{ log.funcName }}</div>
                 <div class="primary">
-
+                <a href="/event/{{ log._id.$oid }}">
                 {{ log.message }}</div></a>
-                <div class="time">{{ log.time.$date }} от {{ log.name }}</div>
+                <div class="time">{{ time(log.time.$date) }} от {{ log.name }}</div>
             </div>
         </div>
     </div>
