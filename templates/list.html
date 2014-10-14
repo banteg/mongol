@@ -11,7 +11,12 @@
                 <div class="primary">
                 <a href="/event/{{ log._id.$oid }}">
                 {{ log.message }}</div></a>
-                <div class="time">{{ time(log.time.$date) }} от {{ log.name }}</div>
+                <div class="time">
+                <abbr title="{{ time(log.time.$date) }}">
+                {{ from_now(log.time.$date) }}
+                </abbr>
+                от {{ log.name }}
+                </div>
             </div>
         </div>
     </div>
