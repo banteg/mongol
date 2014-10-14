@@ -38,7 +38,7 @@ def firehose():
         try:
             doc = next(cursor)
             dump = json.dumps(doc, default=json_util.default)
-            yield 'data: {}\r\n\r\n'.format(dump)
+            yield 'data: {}\n\n'.format(dump)
         except StopIteration:
             sleep(1)
 
